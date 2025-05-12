@@ -1,0 +1,143 @@
+:root {
+    --gap: 20px;
+    --pad: 20px;
+    --bg: hsl(0, 0%, 81%);
+    --card-radius: 8px;
+}
+
+* {
+    box-sizing: border-box;
+    transition: var(--transition);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-size: 13px;
+    background-color: var(--bg);
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding: var(--pad);
+    display: grid;
+    gap: var(--gap);
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.image {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    flex-shrink: 0;
+}
+
+.item1 {
+    background: hsl(263, 55%, 52%);
+    color: #fff;
+    grid-column: 1 / span 2;
+}
+
+.item2 {
+    background: hsl(217, 19%, 35%);
+    color: #fff;
+}
+
+.item3,
+.item5 {
+    background: #fff;
+    color: hsl(217, 19%, 35%);
+}
+
+.item4 {
+    background: hsl(219, 29%, 14%);
+    color: #fff;
+    grid-column: 2 / span 2;
+}
+
+.container>div {
+    padding: var(--pad);
+    border-radius: var(--card-radius);
+    line-height: 1.5;
+}
+
+.container h2 {
+    margin-top: 0.5em;
+    margin-bottom: 0.8em;
+    font-size: 1.1em;
+}
+
+.container span {
+    font-style: italic;
+    display: block;
+    margin-top: 1em;
+    opacity: 0.9;
+}
+
+.container>div:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 1400px) {
+    .container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .item1 {
+        grid-column: 1 / span 3;
+    }
+    .item4 {
+        grid-column: 3 / span 2;
+    }
+}
+
+@media (max-width: 1199px) and (min-width: 769px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .item1 {
+        grid-column: 1 / span 2;
+    }
+    .item4 {
+        grid-column: 1 / span 2;
+    }
+}
+
+@media (max-width: 768px) and (min-width: 481px) {
+    .container {
+        grid-template-columns: 1fr;
+        gap: calc(var(--gap) / 1.5);
+        padding: calc(var(--pad) / 1.5);
+    }
+    .container>div {
+        padding: calc(var(--pad) / 1.2);
+    }
+}
+
+@media (max-width: 480px) {
+     :root {
+        --gap: 10px;
+        --pad: 12px;
+    }
+    .container {
+        padding: var(--pad);
+        gap: var(--gap);
+    }
+    .container>div {
+        padding: var(--pad);
+    }
+    .container h2 {
+        font-size: 1em;
+    }
+}
